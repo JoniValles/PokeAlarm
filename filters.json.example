@@ -42,6 +42,9 @@
             },
             "gym_name_contains_regex_example":{
                 "gym_name_contains":[".*"]
+            },
+			"is_in_battle":{
+                "is_in_battle":1 #0 false / 1 true
             }
         }
     },

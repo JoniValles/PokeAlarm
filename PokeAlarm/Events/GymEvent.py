@@ -29,6 +29,8 @@ class GymEvent(BaseEvent):
         self.new_team_id = int(data.get('team_id', data.get('team')))
 
         # Gym Details
+        #self.is_in_battle = check_for_none(bool, data.get('is_in_battle'), False)
+        self.is_in_battle = check_for_none(bool, data.get('is_in_battle'), False)
         self.gym_name = check_for_none(
             str, data.get('name'), Unknown.REGULAR).strip()
         self.gym_description = check_for_none(
@@ -78,6 +80,7 @@ class GymEvent(BaseEvent):
             'new_team_leader': locale.get_leader_name(self.new_team_id),
 
             # Details
+            'is_in_battle': self.is_in_battle,
             'gym_name': self.gym_name,
             'gym_description': self.gym_description,
             'gym_image': self.gym_image,

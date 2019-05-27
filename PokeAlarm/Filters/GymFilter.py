@@ -62,6 +62,12 @@ class GymFilter(BaseFilter):
         # Missing Info
         self.is_missing_info = BaseFilter.parse_as_type(
             bool, 'is_missing_info', data)
+        # Is in battle
+        #self.is_in_battle = BaseFilter.parse_as_type(
+            #bool, 'is_in_battle', data)
+        self.is_in_battle = self.evaluate_attribute(
+            event_attribute='is_in_battle', eval_func=operator.le,
+            limit=BaseFilter.parse_as_type(int, 'is_in_battle', data))
 
         # Reject leftover parameters
         for key in data:
@@ -95,5 +101,8 @@ class GymFilter(BaseFilter):
         # Missing Info
         if self.is_missing_info is not None:
             settings['missing_info'] = self.is_missing_info
+        # Is in battle
+        if self.is_in_battle is not None:
+            settings['is_in_battle'] = self.is_in_battle
 
         return settings
