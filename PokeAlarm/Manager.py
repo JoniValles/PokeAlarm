@@ -697,19 +697,19 @@ class Manager(object):
         """ Process a gym event and notify alarms if it passes. """
 
         # Update Gym details (if they exist)
-        gym.gym_name = self.__cache.gym_name(gym.gym_id, gym.gym_name)
-        gym.gym_description = self.__cache.gym_desc(
-            gym.gym_id, gym.gym_description)
-        gym.gym_image = self.__cache.gym_image(gym.gym_id, gym.gym_image)
+        #gym.gym_name = self.__cache.gym_name(gym.gym_id, gym.gym_name)
+        #gym.gym_description = self.__cache.gym_desc(
+            #gym.gym_id, gym.gym_description)
+        #gym.gym_image = self.__cache.gym_image(gym.gym_id, gym.gym_image)
 
         # Ignore changes to neutral
-        if self._ignore_neutral and gym.new_team_id == 0:
-            self._log.debug("%s gym update skipped: new team was neutral")
-            return
+        #if self._ignore_neutral and gym.new_team_id == 0:
+            #self._log.debug("%s gym update skipped: new team was neutral")
+            #return
 
         # Update Team Information
-        gym.old_team_id = self.__cache.gym_team(gym.gym_id)
-        self.__cache.gym_team(gym.gym_id, gym.new_team_id)
+        #gym.old_team_id = self.__cache.gym_team(gym.gym_id)
+        #self.__cache.gym_team(gym.gym_id, gym.new_team_id)
 
         # Check if notifications are on
         if self._gyms_enabled is False:
